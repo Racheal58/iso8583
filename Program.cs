@@ -6,9 +6,9 @@ namespace CSI
   class Program {
     static async Task Main(string[] args) {
       await IsoFunction.GenerateEchoMessage();
-    //await IsoFunction.GenerateKeyExchange();
-      //await IsoFunction.PushJournalRequest();
-      IsoFunction.GetClearZPK("", "");
+      string key = await IsoFunction.GenerateKeyExchangeMessage();
+      await IsoFunction.GenerateFinancialMessage(key);
+      await IsoFunction.PushJournalRequest();
     }
   }
 }
